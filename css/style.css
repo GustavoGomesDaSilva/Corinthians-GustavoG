@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2? family= Inter:wght@200;300;400;500;600;700;800 & display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+    padding: 0%;
+    border: 0;
+    margin: 0;
+}
+main{
+    height: auto;
+    width: 100vw;
+    background-color: #f2f2f2;
+    scroll-behavior: auto;
+
+}
+#topo{
+    width: 90%;
+    padding: 0 5%;
+    height: 100vh;
+    background-image: url('../assets/fundoTopo.png');
+    background-repeat: no-repeat;
+    background-size: 42% 80%;
+    background-position: 58vw 0;
+}
+header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+header #logo{
+    width: 13%;
+    height: 90px;
+    padding-top: 1%;
+}
+header #logo img{
+    width: 50%;
+    height: 100%;
+}
+header ul{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+    list-style: none ;
+}
+header ul li a{
+    text-decoration: none;
+    color: #070707;
+    font-size: 22px;
+    text-shadow: #14141452 3px 3px 3px;
+
+}   
+header ul li #noticias{
+    color: #f2f2f2;
+    text-shadow: #cccccc52 3px 3px 3px;
+
+}
+header #btnTopo{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+header #btnTopo button{
+    font-size: 22px;
+    color: #f2f2f2;
+    background-color: transparent;
+    border: #070707 solid 3px;
+    border-radius: 7px;
+    width: 9rem;
+    height: 2.5rem;
+    font-weight: 400;
+}
+#conteudoTopo{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+#topo #conteudoTopo #txtInicial{
+    width: 45%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: antiquewhite; */
+}
+#topo #conteudoTopo #txtInicial h1{
+    font-size: 45px;
+    text-shadow: #14141452 3px 3px 3px;
+    margin-bottom: 5vh;
+}
+#topo #conteudoTopo #txtInicial p{
+    font-size: 32px;
+    line-height: 59px;
+}
+#topo #conteudoTopo #imgTopo{
+    width: 25%;
+    height: 60vh;
+}
+#topo #conteudoTopo #imgTopo img{
+    margin-top: 5vh;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+}
