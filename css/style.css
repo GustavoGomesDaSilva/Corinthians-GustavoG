@@ -4,10 +4,12 @@
     padding: 0%;
     border: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 main{
     height: auto;
-    width: 100vw;
+    min-height: 97vw;
+    max-width: 100vw;
     background-color: #f2f2f2;
     scroll-behavior: auto;
 
@@ -105,3 +107,24 @@ header #btnTopo button{
     height: 100%;
     border-radius: 10px 10px 0 0;
 }
+
+#linhaDoTempo{
+    height: 90vh;
+    width: 100%;
+    /* background-color: rgb(134, 134, 134); */
+}
+
+.titulo{
+    font-size: 40px;
+    text-align: center;
+}
+.cor-preta{
+    color: #070707;
+}
+.cor-cinza{
+    color: #949494;
+}
+/* parte da linha do tempo */
+
+
+/* fim da parte da linha do tempo */
