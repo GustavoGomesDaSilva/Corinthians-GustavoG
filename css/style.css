@@ -160,3 +160,55 @@ header #btnTopo button{
     font-size: 30px;
     line-height: 50px;
 }
+
+#noticias{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    /* background-color: #949494; */
+}
+#conteudoNoticias{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    /* margin: auto; */
+}
+#conteudoNoticias section {
+    width: auto;    
+}
+#conteudoNoticias #noticiasVerticalEsquerda img{
+    width: 90%;
+    margin-top: 5vh;
+}   
+#conteudoNoticias #noticiasVerticalDireita img{
+    margin-top: 2vh;
+    width: 85%;
+
+}   
+
+.txtNoticia {
+    position: relative;
+    /* max-width: 800px; Maximum width */
+    width:40vw;
+    margin: 0 auto; /* Center it */
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .txtNoticia .conteudoDaNoticia {
+    position: absolute; /* Position the background text */
+    margin-bottom: 2%; /* At the bottom. Use top:0 to append it to the top */
+    width: 77.7%; /* Full width */
+    padding: 20px; /* Some padding */
+    height: 17%;
+    top: 70%;
+    border-radius: 12px;
+    font-size: 26px;
+    text-shadow: #070707 5px 5px 5px;
+    /* left: 20%; */
+  }
+  .txtNoticia .conteudoDaNoticia h1 a{
+    text-decoration: none;
+    color: #f2f2f2;
+  }
