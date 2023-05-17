@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2? family= Inter:wght@200;300;400;500;600;700;800 & display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+    padding: 0%;
+    border: 0;
+    margin: 0;
+}
+body {
+    background-color: #f2f2f2;
+}
+main{
+    min-height: 97vw;
+    max-width: 100vw;
+    min-height: 99vh;
+    max-height: 100vh;
+    display: flex;
+}
+.logo{
+    width: 8vw;
+    height: 90px;
+    padding-top: 1%;
+}
+.logo img{
+    width: 90%;
+    height: 100%;
+}
+#imgCadastro{
+    width: 55%;
+    margin-top: 20vh;
+    height: 80vh;
+    position: absolute;
+    background-image: url('../assets/imgCadastro1.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#formCadastro{
+    position: absolute;
+    left: 45%;
+    height: 100vh;
+    width: 55%;
+    background-color: #fff;
+    z-index: 10;    
+    display: flex;
+    flex-direction: column;
+    border-radius: 5% 0 0 5%;
+    box-shadow: #070707 -5px 0 10px;
+}
+#formCadastro section{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+#formCadastro section h2{
+    width: 50%;
+    text-align: right;
+    margin: 4vh 0 2vh 0;
+    font-size: 28px;
+    text-shadow: 3px 3px 3px #777777b4;
+    /* background-color: #111; */
+}
+#formCadastro form{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+#formCadastro section form input{
+    width: 90%;
+    border-bottom: 2px solid #070707;
+    border-radius: 22%;
+    height: 4rem;
+    padding-left: 7%;
+    font-size: 20px;
+    margin-top: 3vh;
+    outline: none;
+    color: #111;
+}
+#formCadastro section form input:first-child{
+    margin-top: 0;
+}
+
+
+#formCadastro section #btnCadastro{
+    width: 35%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4vh;
+    /* background-color: #6d0a0a; */
+}
+#formCadastro button{
+    font-size: 22px;
+    color: #131313;
+    font-weight: bold;
+    background-color: #ccccccaf;
+    border: #070707 solid 3px;
+    border-radius: 7px;
+    width: 10rem;
+    height: 3rem;
+    box-shadow: 5px 5px 5px #111;
+    
+    transition: all 0.5s;  
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#formCadastro button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff6b6b00; /* Cor inicial do background */
+    transition: width 0.3s, background-color 0.3s;
+    z-index: -1;
+
+  }
+  
+  #formCadastro button:hover::before {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(171,171,171,0.4) 100%, rgba(0,0,0,1) 190%);
+
+}
+
+#formCadastro button:hover{
+    transform: translateY(-4px);
+    box-shadow: 5px 5px 5px rgb(58, 8, 8);
+
+    /* background-color: #3b3b3b; */
+}

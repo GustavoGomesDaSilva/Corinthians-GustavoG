@@ -31,20 +31,23 @@ header{
     align-items: center;
     margin: auto;
 }
-header #logo{
-    width: 13%;
+.logo{
+    width: 8%;
     height: 90px;
     padding-top: 1%;
 }
-header #logo img{
-    width: 50%;
+.logo img{
+    width: 90%;
     height: 100%;
 }
 header ul{
     display: flex;
-    width: 45%;
+    width: 54%;
     justify-content: space-between;
     list-style: none ;
+}
+header ul li{
+    transition: all 0.5s;
 }
 header ul li a{
     text-decoration: none;
@@ -52,12 +55,36 @@ header ul li a{
     font-size: 22px;
     text-shadow: #14141452 3px 3px 3px;
 
+    
 }   
 header ul li #noticias{
     color: #f2f2f2;
     text-shadow: #cccccc52 3px 3px 3px;
 
 }
+header ul li:hover{
+    transform: translateY(-0.2rem);
+
+}
+header ul li:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-bottom: solid 2px #6d0a0a;
+    transition: width 0.3s, background-color 0.3s;
+    z-index: -1;
+}
+header ul li:hover::before{
+    width: 100%;
+    border-bottom: solid 2px #6d0a0a;
+
+}
+
+
+
 header #btnTopo{
     width: 25%;
     display: flex;
@@ -72,7 +99,34 @@ header #btnTopo button{
     width: 9rem;
     height: 2.5rem;
     font-weight: 400;
+    
+    transition: all 0.5s;  
+    cursor: pointer;
+    overflow: hidden;
 }
+
+header #btnTopo button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff6b6b00; /* Cor inicial do background */
+    transition: width 0.3s, background-color 0.3s;
+    z-index: -1;
+  }
+  
+  header #btnTopo button:hover::before {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(171,171,171,0.4) 100%, rgba(0,0,0,1) 190%);
+}
+
+header #btnTopo button:hover{
+    transform: translateY(-5px);
+    /* background-color: #3b3b3b; */
+}
+
 #conteudoTopo{
     width: 90%;
     margin: auto;
@@ -102,7 +156,7 @@ header #btnTopo button{
     height: 60vh;
 }
 #topo #conteudoTopo #imgTopo img{
-    margin-top: 5vh;
+    margin-top: 3.6vh;
     width: 100%;
     height: 100%;
     border-radius: 10px 10px 0 0;
@@ -123,6 +177,9 @@ header #btnTopo button{
 }
 .cor-cinza{
     color: #949494;
+}
+.cor-vermelha{
+    color: #6d0a0a;
 }
 #selecao{
     width: 80%;
@@ -165,6 +222,7 @@ header #btnTopo button{
     width: 80%;
     height: auto;
     margin: auto;
+    margin-bottom: 15vh;
     /* background-color: #949494; */
 }
 #conteudoNoticias{
@@ -211,4 +269,47 @@ header #btnTopo button{
   .txtNoticia .conteudoDaNoticia h1 a{
     text-decoration: none;
     color: #f2f2f2;
+  }
+  footer{
+    background-color: #242424;
+    height: auto;
+    box-shadow: #000000 0px -5px 50px;
+    padding-top: 3vh;
+  }
+  footer .logo{
+    width: 35%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  footer article{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  footer article p{
+    font-weight: 600;
+    color: #f2f2f2;
+    text-align: center;
+    margin: 3vh 0;
+  }
+  footer article #contato{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer article #contato a{
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+  footer article #contato img{
+    width: 70%;
+  }
+  footer article p:last-child{
+    font-weight: 500;
+    font-size: 12px;
   }

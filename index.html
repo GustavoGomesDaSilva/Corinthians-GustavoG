@@ -17,8 +17,9 @@
   <body>
     <main>
       <article id="topo">
+        <a name="HOME"></a>
         <header>
-          <div id="logo">
+          <div class="logo">
             <img src="assets/simbolo.png" alt="simbolo do Corinthians" />
           </div>
           <ul>
@@ -28,8 +29,8 @@
             <li><a href="#NOTICIAS" id="noticias">Notícias</a></li>
           </ul>
           <div id="btnTopo">
-            <button>Entrar</button>
-            <button>Cadastrar</button>
+            <button onclick="window.location.href = 'html/login.html' ">Entrar</button>
+            <button onclick="window.location.href = 'html/cadastro.html' ">Cadastrar</button>
           </div>
         </header>
         <article id="conteudoTopo">
@@ -48,12 +49,13 @@
       </article>
 
       <!-- timeline -->
+      <a name="HISTORIA"></a>
 
       <article id="linhaDoTempo">
         <!-- TIMELINE 1 -->
         <div class="titulo" id="historia">
           <h1 class="titulo">
-            <span class="cor-preta">Linha  do <span class="cor-cinza">Tempo</span>
+            <span class="cor-preta">Linha  do <span class="cor-vermelha">Tempo</span>
           </h1>
         </div>
         <section class="cd-horizontal-timeline">
@@ -174,16 +176,6 @@
                 <h2>Altos e Baixos</h2>
                 <em>1990</em>
                 <p>
-                  LEILAC consortium secures €12 Million EU Funding to
-                  demonstrate technology to reduce carbon emissions from cement
-                  and lime industries.
-                </p>
-              </li>
-
-              <li data-date="01/01/2000">
-                <h2>Major Funding</h2>
-                <em>1990</em>
-                <p>
                   A década de 1990 do Corinthians foi marcada por altos e baixos. O clube conquistou o bicampeonato paulista em 1990 e 1991, mas enfrentou dificuldades financeiras e foi rebaixado para a segunda divisão do Campeonato Brasileiro em 1993. No entanto, o Corinthians conseguiu o acesso de volta à primeira divisão no ano seguinte e, em 1995, conquistou a Copa do Brasil. O período também foi marcado pela chegada do técnico Vanderlei Luxemburgo, que levou o clube ao bicampeonato brasileiro em 1998 e 1999.
                 </p>
               </li>
@@ -212,7 +204,8 @@
                 </p>
                 <p>                  
                   Em 2017 conquistou o Campeonato Paulista e o Campeonato Brasileiro. No ano seguinte, em 2018 e 2019, o Corinthians voltou a conquistar o Paulistão, ainda sob o comando de Carille.
-                </p>                  
+                </p>   
+                <p>               
                   Atualmente, o Corinthians segue em busca de novas conquistas e de retomar o protagonismo no futebol brasileiro e internacional.
                 </p>
               </li>              
@@ -226,6 +219,8 @@
         <script src="js/timeLine.js"></script>
       </article>
       <!-- fim da timeline -->
+
+      <a name="SELECAO"></a>
       <article id="selecao">
         <h1 class="titulo">Monte sua seleção</h1>
         <section id="conteudoSelecao">
@@ -236,9 +231,11 @@
         </section>          
       </article>
 
+      <a name="NOTICIAS"></a>
+
       <article id="noticias">
         <h1 class="titulo">
-          <span class="cor-cinza">Notícias  do <span class="cor-preta">Momento</span>
+          <span class="cor-vermelha">Notícias  do <span class="cor-preta">Momento</span>
         </h1>
         <article id="conteudoNoticias">
           <section id="noticiasVerticalEsquerda">
@@ -271,6 +268,25 @@
           </section>  
         </article>    
       </article>
+      <footer>
+        <article>
+        <div class="logo" >
+          <a href="#HOME">
+          <img src="assets/simboloBranco.png" alt="">
+        </a>
+        </div>
+        <p>De torcedor para Torcedor</p>
+        <div id="contato">
+          <a href="https://www.linkedin.com/in/gustavo-gomes-da-silva/" target="_blank">
+            <img src="assets/linkedinLogo.svg" alt="">
+          </a>
+          <a href="https://github.com/GustavoGomesDaSilva" target="_blank">
+            <img src="assets/githubLogo.svg" alt="">
+          </a>
+        </div>
+        <p>Copyrigth © 2023 Corinthians. Todos os direitos reservados</p>
+      </article>
+      </footer>
     </main>
   </body>
 </html>
