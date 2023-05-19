@@ -24,18 +24,16 @@ main{
     width: 90%;
     height: 100%;
 }
-#imgCadastro{
+#imgLogin{
     width: 55%;
     margin-top: 20vh;
     height: 80vh;
-    position: absolute;
-    background-image: url('../assets/imgCadastro1.svg');
+    background-image: url('../assets/imgLogin.svg');
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
-#formCadastro{
-    position: absolute;
+#formLogin{
     left: 45%;
     height: 100vh;
     width: 55%;
@@ -43,10 +41,10 @@ main{
     z-index: 10;    
     display: flex;
     flex-direction: column;
-    border-radius: 5% 0 0 5%;
+    border-radius: 0 5% 5% 0;
     box-shadow: #070707 -5px 0 10px;
 }
-#formCadastro section{
+#formLogin section{
     width: 98%;
     margin: auto;
     display: flex;
@@ -55,7 +53,8 @@ main{
     align-items: center;
     margin-top: 2vh;
 }
-#formCadastro section h2{
+
+#formLogin section h2{
     width: 50%;
     text-align: right;
     margin: 4vh 0 2vh 0;
@@ -63,13 +62,32 @@ main{
     text-shadow: 3px 3px 3px #777777b4;
     /* background-color: #111; */
 }
-#formCadastro form{
+#formLogin form{
     width: 60%;
+    height: 50vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+    /* background-color: rgb(16, 66, 66); */
+    
 }
+#cadastrese {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: #131313; */
+    margin-top:7vh;
 
-#formCadastro section form input{
+}
+ #cadastrese p a{
+    text-align: left;
+    text-decoration: none;
+    color: #252525;
+    font-size: 13px;
+}
+#formLogin section form input{
     width: 90%;
     border-bottom: 2px solid #070707;
     border-radius: 22%;
@@ -77,15 +95,16 @@ main{
     padding-left: 7%;
     font-size: 20px;
     margin-top: 3vh;
+    margin-bottom: 5vh;
     outline: none;
     color: #111;
 }
-#formCadastro section form input:first-child{
+#formLogin section form input:first-child{
     margin-top: 0;
 }
 
 
-#formCadastro section #btnCadastro{
+#formLogin section #btnLogin{
     width: 100%;
     margin: auto;
     display: flex;
@@ -93,7 +112,7 @@ main{
     margin-top: 4vh;
     /* background-color: #6d0a0a; */
 }
-#formCadastro button{
+#formLogin button{
     font-size: 22px;
     color: #131313;
     font-weight: bold;
@@ -109,7 +128,7 @@ main{
     overflow: hidden;
 }
 
-#formCadastro button::before {
+#formLogin button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -122,13 +141,13 @@ main{
 
   }
   
-  #formCadastro button:hover::before {
+  #formLogin button:hover::before {
     width: 100%;
     background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(171,171,171,0.4) 100%, rgba(0,0,0,1) 190%);
 
 }
 
-#formCadastro button:hover{
+#formLogin button:hover{
     transform: translateY(-4px);
     box-shadow: 5px 5px 5px rgb(58, 8, 8);
 
