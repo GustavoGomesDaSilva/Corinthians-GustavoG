@@ -18,7 +18,7 @@ main{
     width: 90%;
     padding: 0 5%;
     height: 100vh;
-    background-image: url('../assets/fundoTopo.png');
+    background-image: url('../assets/imgs/fundoTopo.png');
     background-repeat: no-repeat;
     background-size: 42% 80%;
     background-position: 58vw 0;
