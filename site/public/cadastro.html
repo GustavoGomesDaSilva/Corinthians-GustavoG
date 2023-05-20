@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <title>Cadastro</title>
     <link rel="shortcut icon" type="image/jpg" href="assets/icon/simboloBranco.png" />
+    <script src="./js/funcoes.js"></script>
+
 </head>
 
 <body>
     <main>
         <article id="imgCadastro"></article>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
         <article id="formCadastro">
             <section>
                 <div class="logo"><img src="assets/icon/simbolo.png" alt=""></div>
@@ -27,6 +34,13 @@
                     <div id="btnCadastro">
                         <button onclick="cadastrar()">Cadastrar</button>
                     </div>
+                    
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login"></div>
+
                 </form>
             </section>
         </article>

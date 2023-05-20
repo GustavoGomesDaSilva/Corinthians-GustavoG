@@ -8,10 +8,17 @@
   <link rel="stylesheet" href="css/Login.css">
   <title>Login</title>
   <link rel="shortcut icon" type="image/jpg" href="assets/icon/simboloBranco.png" />
+  <script src="./js/funcoes.js"></script>
+
 </head>
 
 <body>
   <main>
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+      </div>
+    </div>
     <article id="formLogin">
       <section>
         <div class="logo"><img src="assets/icon/simbolo.png" alt=""></div>
@@ -23,6 +30,12 @@
           <div id="btnLogin">
             <button onclick="entrar()">Entrar</button>
           </div>
+
+          <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif">
+        </div>
+
+        <div id="div_erros_login"></div>
           
         </form>
         <div id="cadastrese">
@@ -81,7 +94,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
