@@ -64,7 +64,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 500)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -94,7 +94,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "index.html";
+                        window.location = "./selecao.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
