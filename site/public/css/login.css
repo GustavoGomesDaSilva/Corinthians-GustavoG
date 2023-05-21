@@ -41,7 +41,7 @@ main{
     z-index: 10;    
     display: flex;
     flex-direction: column;
-    border-radius: 0 5% 5% 0;
+    border-radius: 0 5% 0% 0;
     box-shadow: #070707 -5px 0 10px;
 }
 #formLogin section{
