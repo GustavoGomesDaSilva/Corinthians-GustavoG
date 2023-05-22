@@ -1,117 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <title>Login</title>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="assets/icon/simboloBranco.png"
+    />
+    <script src="./js/funcoes.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/Login.css">
-  <title>Login</title>
-  <link rel="shortcut icon" type="image/jpg" href="assets/icon/simboloBranco.png" />
-  <script src="./js/funcoes.js"></script>
+  <body>
+    <main>
+      <div class="alerta_erro"></div>
+      <article id="formLogin">
+        <section>
+          <div class="logo">
+            <a href="index.html">
+            <img src="assets/icon/simbolo.png" alt="" /></a></div>
+          <h2>Login</h2>
 
-</head>
+          <form action="./selecao.html" id="form" class="form">
+            <input type="email" placeholder="Email" id="iptEmail" />
+            <input type="password" placeholder="Senha" id="iptSenha" />
 
-<body>
-  <main>
-    <div class="alerta_erro">
-     
-    </div>
-    <article id="formLogin">
-      <section>
-        <div class="logo"><img src="assets/icon/simbolo.png" alt=""></div>
-        <h2>Login</h2>
-        <div class="card_erro" id="cardErro">
-          <span id="mensagem_erro"></span>
-      </div>
-      <form action="./selecao.html" id="form" class="form">
-        <input type="email" placeholder="Email" id="iptEmail">
-          <input type="password" placeholder="Senha" id="iptSenha">
+            <div id="btnLogin">
+              <button type="submit" onclick="entrar(event)">Entrar</button>
+            </div>
+          </form>
 
-          <div id="btnLogin">
-            <button type="submit" onclick="entrar()">Entrar</button>
+          <div id="cadastrese">
+            <div class="alerta_erro">
+              <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+              </div>
+            </div>
+            <p>
+              <a href="cadastro.html"
+                >Ainda não tem conta? <u> Cadastre-se</u></a
+              >
+            </p>
           </div>
-          
-        </form>
-        <div id="cadastrese">
-          <p><a href="cadastro.html">Ainda não tem conta? <u> Cadastre-se</u></a></p>
-        </div>
-      </section>
-    </article>
-    <article id="imgLogin"></article>
+        </section>
+      </article>
+      <article id="imgLogin"></article>
+    </main>
+  </body>
+</html>  <script>
+  function entrar(event) {
+    event.preventDefault(); // Impede o envio do formulário
 
-  </main>
-</body>
+    var emailVar = document.getElementById("iptEmail").value;
+    var senhaVar = document.getElementById("iptSenha").value;
 
-</html>
-<script>
-  
-  function entrar() {       
+    if (emailVar === "" || senhaVar === "") {
+      var cardErro = document.getElementById("cardErro");
+      cardErro.style.display = "block";
+      var mensagemErro = document.getElementById("mensagem_erro");
+      mensagemErro.innerHTML = "Preencha todos os campos";
+    } else {
+      setInterval(sumirMensagem, 1000);
 
-        var emailVar = iptEmail.value;
-        var senhaVar = iptSenha.value;
+      console.log("FORM LOGIN: ", emailVar);
+      console.log("FORM SENHA: ", senhaVar);
 
-        if ( emailVar == "" || senhaVar == "" ) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos";
+      fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!");
 
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+          if (resposta.ok) {
+            console.log(resposta);
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+            resposta.json().then(function (json) {
+              console.log(json);
+              console.log(JSON.stringify(json));
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+              sessionStorage.EMAIL_USUARIO = json.email;
+              sessionStorage.NOME_USUARIO = json.nome;
+              sessionStorage.ID_USUARIO = json.id;
 
-            if (resposta.ok) {
-                console.log(resposta);
+              setTimeout(function () {
+                window.location = "./selecao.html";
+              }, 1000); // Apenas para exibir o loading
+            });
+          } else {
+            console.log("Houve um erro ao tentar realizar o login!");
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                        window.location = "./index.html";
-                    }, "2000"); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
+            resposta.text().then(function (texto) {
+              console.error(texto);
+            });
+          }
         })
-
-        return false;
+        .catch(function (erro) {
+          console.log(erro);
+        });
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    return false;
+  }
 
+  function sumirMensagem() {
+    var cardErro = document.getElementById("cardErro");
+    cardErro.style.display = "none";
+  }
 </script>

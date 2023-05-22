@@ -161,36 +161,26 @@ main{
     display: flex;
     justify-content: flex-end;
     height: auto;
+    width: auto;
   }
   
   .card_erro {
-    margin-top: 6vh;
+    /* margin-top: 43vh; */
+   
     display: none;
-    background-color: #fff;
+    background-color: #f2f2f2;
     color: black;
     width: 230px;
-    position: absolute;
+    position: fixed;
     border-radius: 4px;
-    border: #e6005a 3px solid;
+    border: #ca0000 solid 3px ;
     padding: 10px;
-    margin-right: 10%;
+    top: 70vh;
+
+    /* margin-right: 10%; */
   }
   
   .card_erro #mensagem_erro{
     font-weight: 500;
     font-size: 20px;
-  }
-
-  .loading-div {
-    width: 50px;
-    display: none;
-  }
-  
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
-
-  #div_erros_login {
-    display: none
   }
