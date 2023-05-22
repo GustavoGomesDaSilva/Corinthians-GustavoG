@@ -139,14 +139,16 @@ main{
 .alerta_erro{
     display: flex;
     justify-content: flex-end;
+    height: auto;
   }
   
   .card_erro {
+    margin-top: 6vh;
     display: none;
     background-color: #fff;
     color: black;
     width: 230px;
-    position: fixed;
+    position: absolute;
     border-radius: 4px;
     border: #e6005a 3px solid;
     padding: 10px;

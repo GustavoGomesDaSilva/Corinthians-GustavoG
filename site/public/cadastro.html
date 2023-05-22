@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -9,37 +9,32 @@
     <title>Cadastro</title>
     <link rel="shortcut icon" type="image/jpg" href="assets/icon/simboloBranco.png" />
     <script src="./js/funcoes.js"></script>
-
 </head>
 
 <body>
     <main>
         <article id="imgCadastro"></article>
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
+       
         <article id="formCadastro">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <section>
                 <div class="logo"><img src="assets/icon/simbolo.png" alt=""></div>
                 <h2>Cadastro</h2>
-                <form action="">
-                    <input required="required" type="text" placeholder="Nome" id="iptNome">
-                    <input required="required" type="text" placeholder="NickName" id="iptNick">
-                    <input required="required" type="email" placeholder="exemplo@gmail.com" id="iptEmail">
-                    <input required="required" type="password" placeholder="********" id="iptSenha">
-                    <input required="required" type="password" placeholder="********" id="iptConfirmarSenha">
+                <form action="./login.html" id="form" class="form">
+                    <input  type="text" placeholder="Nome" id="iptNome">
+                    <input  type="text" placeholder="NickName" id="iptNick">
+                    <input  type="email" placeholder="exemplo@gmail.com" id="iptEmail">
+                    <input  type="password" placeholder="********" id="iptSenha">
+                    <input  type="password" placeholder="********" id="iptConfirmarSenha">
 
                     <div id="btnCadastro">
                         <button onclick="cadastrar()">Cadastrar</button>
                     </div>                  
                    
-                    <div id="div_aguardar" class="loading-div">
-                        <img src="./assets/circle-loading.gif" id="loading-gif">
-                    </div>
-
-                    <div id="div_erros_login"></div>
 
                 </form>
             </section>
@@ -50,26 +45,88 @@
 </html>
 <script>
 
-function cadastrar() {
-        aguardar();
-    console.log("entrou na função")
+const form = document.getElementById('form')
+    const username = document.getElementById('iptNome')
+    const nickname = document.getElementById('iptNick')
+    const email = document.getElementById('iptEmail')
+    const senha = document.getElementById('iptSenha')
+    const confirmeSenha = document.getElementById('iptConfirmarSenha')
+    
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+    })
+    function msgErro(input, mensagem) {
+        const estrutura = input.parentElement;
+        const small = estrutura.querySelector('small')
+
+        small.innerText = mensagem;
+
+        estrutura.className = 'estrutura erro'
+    }
+    function msfsucesso(input, mensagem) {
+        const estrutura = input.parentElement;
+
+        estrutura.className = 'estrutura sucesso'
+    }
+
+    function cadastrar() {
+       
+        if (nomeVar == '') {
+            msgErro(username, 'Nome de usuário obrigatório')
+        }else {
+            msfsucesso(username, '');
+        }
+        if (nicknameVar == '') {
+            msgErro(username, 'Nickname obrigatório')
+        }else {
+            msfsucesso(username, '');
+        }
+        if (emailVar == '') {
+            msgErro(email, 'Email obrigatório')
+        }else {
+            msfsucesso(email, '');
+        }
+        if (senhaVar == '') {
+            msgErro(senha, 'Senha obrigatório')
+        }else {
+            msfsucesso(senha, '');
+        }
+        if (confirmacaoSenhaVar == '') {
+            msgErro(confirmeSenha, 'Confirmação de senha obrigatório')
+        }else {
+            msfsucesso(confirmeSenha, '');
+        }
+        if (confirmacaoSenhaVar != senhaVar) {
+            msgErro(confirmeSenha, 'Senha inválida')
+        }else {
+            msfsucesso(confirmeSenha, '');
+        }
+    
+
+    
+    
+    
+        //aguardar();
+
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = iptNome.value;
-        var nickameVar = iptNick.value;
+        var nicknameVar = iptNick.value;
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
         var confirmacaoSenhaVar = iptConfirmarSenha.value;
 
-        if (nomeVar == "" || nickameVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || nickname == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Preencha todos os campos";
 
-            finalizarAguardar();
+            // finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 500)
+            setInterval(sumirMensagem, 5000)
         }
 
         // Enviando o valor da nova input
@@ -82,7 +139,7 @@ function cadastrar() {
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                nicknameServer: nickameVar,
+                nicknameServer: nicknameVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
@@ -96,17 +153,17 @@ function cadastrar() {
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
-                    window.location = "./login.html";
-                }, "0")
+                    window.location = "login.html";
+                }, "2000")
 
                 limparFormulario();
-                finalizarAguardar();
+                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
@@ -115,4 +172,5 @@ function cadastrar() {
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+
 </script>

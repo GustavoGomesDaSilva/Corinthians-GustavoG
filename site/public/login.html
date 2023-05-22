@@ -15,27 +15,22 @@
 <body>
   <main>
     <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-          <span id="mensagem_erro"></span>
-      </div>
+     
     </div>
     <article id="formLogin">
       <section>
         <div class="logo"><img src="assets/icon/simbolo.png" alt=""></div>
         <h2>Login</h2>
-        <form action="">
-          <input required="required" type="email" placeholder="Email" id="iptEmail">
-          <input required="required" type="password" placeholder="Senha" id="iptSenha">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+      </div>
+      <form action="./selecao.html" id="form" class="form">
+        <input type="email" placeholder="Email" id="iptEmail">
+          <input type="password" placeholder="Senha" id="iptSenha">
 
           <div id="btnLogin">
-            <button onclick="entrar()">Entrar</button>
+            <button type="submit" onclick="entrar()">Entrar</button>
           </div>
-
-          <div id="div_aguardar" class="loading-div">
-            <img src="./assets/circle-loading.gif" id="loading-gif">
-        </div>
-
-        <div id="div_erros_login"></div>
           
         </form>
         <div id="cadastrese">
@@ -51,20 +46,20 @@
 </html>
 <script>
   
-  function entrar() {
-        aguardar();
+  function entrar() {       
 
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if ( emailVar == "" || senhaVar == "" ) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            mensagem_erro.innerHTML = "Preencha todos os campos";
+
+            // finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 500)
+            setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -93,10 +88,10 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    setTimeout(() => {
-                    window.location = "./selecao.html";
-                }, "0")// apenas para exibir o loading
-                
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, "2000"); // apenas para exibir o loading
+
                 });
 
             } else {
@@ -105,7 +100,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
@@ -119,4 +113,5 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+
 </script>
