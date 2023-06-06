@@ -188,8 +188,12 @@ header #btnTopo button:hover{
 }
 #selecao #conteudoSelecao {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 90vh;
+    height: auto;
+    margin-bottom: 9vh;
     /* background-color: #949494; */
 
 }
@@ -208,14 +212,46 @@ header #btnTopo button:hover{
 }
 #selecao #conteudoSelecao #txtSelecao{
     /* background-color: antiquewhite; */
-    margin-top: 5vh;
-    width: 70%;
+    /* margin-top: 5vh; */
+    width: 90%;
     height: 90%;
-    padding: 3%;
+    margin: auto;
+    /* padding: 3%; */
     /* display: flex;
     align-items: center; */
     font-size: 30px;
     line-height: 50px;
+}
+
+#timeFeminino{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10vh;
+}
+#timeFeminino .topoFem{
+    width: 100%;
+    display: flex;
+    margin-bottom: 9vh;
+}
+#timeFeminino .txtTopoFem{
+    width: 60%;
+}
+#timeFeminino .txtTopoFem p{
+    width: 70%;
+    /* margin: auto; */
+    margin-left: 20%;
+    /* background-color: #242424; */
+    font-size: 22px;
+    line-height: 59px;
+}
+/* #timeFeminino .topoFem #imgTimeFem{
+    width: 100%;
+    height: auto;
+    /* background-color: #242424; 
+} */
+#timeFeminino .topoFem #imgTimeFem img{
+    width: 100%;
+    height: 100%;
 }
 
 #noticias{
@@ -251,6 +287,7 @@ header #btnTopo button:hover{
     margin: 0 auto; /* Center it */
     display: flex;
     justify-content: center;
+    overflow: hidden;
     
   }
   
@@ -270,7 +307,17 @@ header #btnTopo button:hover{
     text-decoration: none;
     color: #f2f2f2;
   }
-  footer{
+  .txtNoticia img {
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+  }
+  
+  .txtNoticia img:hover {
+    transform: scale(1.1); /* Aumenta a escala da imagem em 10% */
+    filter: blur(1px);
+
+  }
+  
+footer{
     background-color: #242424;
     height: auto;
     box-shadow: #000000 0px -5px 50px;

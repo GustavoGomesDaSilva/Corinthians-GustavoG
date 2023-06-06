@@ -72,13 +72,14 @@ main{
 #formCadastro section form input{
     width: 90%;
     border-bottom: 2px solid #070707;
-    border-radius: 22%;
+    border-radius: 16px;
     height: 3.7rem;
     padding-left: 7%;
     font-size: 20px;
     margin-top: 2vh;
     outline: none;
     color: #111;
+    box-shadow: #3838386e 3px 3px 2px;
 }
 #formCadastro section form input:first-child{
     margin-top: 0;

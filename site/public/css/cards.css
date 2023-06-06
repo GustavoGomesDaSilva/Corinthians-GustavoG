@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2? family= Inter:wght@200;300;400;500;600;700;800 & display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+    padding: 0%;
+    border: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+main{
+    min-height: 97vh;
+    height: auto;
+    /* max-width: 100vw; */
+    background-color: #f2f2f2;
+    scroll-behavior: auto;
+    overflow-x: hidden;
+
+}
+header{
+    background-image: url(../assets/imgs/fundoSelecao.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 97%;
+    /* padding: auto 2%; */
+    height:29vh;
+    /* padding-top: 1%; */
+    padding-left: 0;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    /* background-color: aqua; */
+}
+header div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 90%;
+    width: 35%;
+    margin-top: 2%;
+    /* margin-top: 20%; */
+    /* background-color: #ffeaca; */
+}
+header div img{
+    width: 90px;
+    height: 90px;
+}
+header div p{
+    color: #ccc;
+    text-decoration: underline;
+    margin: 5px auto;
+}
+header div p button{
+    cursor: pointer !important;
+    background-color: transparent;
+    color: #ccc;
+}
+header div h5{
+    color: #f2f2f2;
+    font-size: 18px;
+}
+header a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 8vw;
+
+}
+header a i{
+    color: #ccc;
+}
+header a img{
+    width: 30px;
+    height: 30px;
+}
+#interacao{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+#interacao #cardInputs{
+    width: 45%;
+
+}
+#interacao #cardInputs form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1vh;
+}
+#interacao #cardInputs form input, #interacao #cardInputs form select{
+    width: 50%;
+    height: 8vh;
+    background-color: transparent;
+    border: solid 1px #0f0f0f;
+    border-radius: 15px;
+    margin: 2% auto;
+    padding-left: 2vw;
+    outline: none;
+    font-size: 16px;
+}
+#interacao #cardInputs form input:focus,  #interacao #cardInputs form select:focus{
+    border: solid 2px #570d0d;
+}
+#interacao #cardInputs form select{
+    width: 55%;
+}
+#interacao #cardInputs form select:invalid {
+    color: gray;
+  }
+#interacao #cardInputs form button{
+    background-color: #a0a0a0;
+    width: 16vw;
+    margin: auto;
+    height: 7vh;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: #909090 4px 4px 2px;
+    cursor: pointer;
+    color: #242424;
+}
+
+
+#interacao #cardInputs form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff6b6b00; /* Cor inicial do background */
+    transition: width 0.3s, background-color 0.3s;
+    z-index: -1;
+    border-radius: 10px;
+
+  }
+  
+  #interacao #cardInputs form button:hover::before {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(171,171,171,0.4) 100%, rgba(0,0,0,1) 190%);
+    border-radius: 10px;
+
+}
+
+#interacao #cardInputs form button:hover{
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 5px #3a0808;
+    border-radius: 10px;
+
+    /* background-color: #3b3b3b; */
+}
+
+
+#interacao #sessaoCard{
+    width: 45%;
+}
+#interacao #sessaoCard #areaCard{
+    width: fit-content;
+    /* background-color: #494949; */
+    margin: auto;
+    height: 27vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* align-items: center; */
+    background-image: url('../assets/imgs/rara.png');
+    /* background-position: flex-end  flex-start;  */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 50vh 90%;
+    padding: 0;
+}
+#interacao #sessaoCard #areaCard #jogador{
+    /* background-color: aquamarine; */
+    height: 40vh;
+    max-height: 40vh;
+    position: absolute;
+    top : 35%;
+}
+#interacao #sessaoCard #areaCard #jogador img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+    max-width: 100%;
+    margin-top: 5vh;
+    /* margin-left: 3vw; */
+    /* background-color: yellow !important; */
+}
+#interacao #sessaoCard #areaCard #skills{
+    position: absolute;
+    top : 80%;
+    left: 60%;
+    /* background-color: #3a0808; */
+}
+#interacao #sessaoCard #areaCard #skills div{
+    position: absolute;
+    top : 00%;
+    width: 9vw;
+    left: 8vw;
+    /* background-color: #3a0808; */
+
+}
+#interacao #sessaoCard #areaCard #skills p{
+    color: gold ;
+    font-weight: 600;
+    text-shadow: #242424 2px 2px 2px;
+    margin-bottom: 1rem;
+
+}
+/* modal avatar */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .modal-content {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    background-color: #cfcfcf;
+    /* background-color: #fefefe; */
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 80%;
+  }
+  .modal::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px); /* Adicione o filtro de desfoque */
+  }
+  .modal-content div {
+    width: 140px; 
+    height: 140px; 
+    margin: 10px;
+  }
+  
+  .modal-content img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border: #3a0808 1px solid; 
+    border-radius: 15px;
+  }
+  
+  
+  /* Estilo para ocultar o botão do modal quando o modal estiver aberto */
+  .modal-open {
+    display: none;
+  }
+  #avatar{
+    border-radius: 15px;
+
+  }
+  

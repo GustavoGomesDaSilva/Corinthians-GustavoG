@@ -4,9 +4,247 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/cards.css" />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="assets/icon/simboloBranco.png"
+    />
+    <title>Cards</title>
 </head>
 <body>
-    pg de selecao
+    <main>
+        <header>
+            <div>
+                <img src="assets/imgs/userIcon.svg" alt="" id="avatar">
+                <p ><button id="openModalButton"> Escolha seu avatar </button></p>
+                <h5>Nome de Usuário</h5>
+            </div>
+            <a href="./index.html">
+                    <i>Deslogar</i>
+                <img src="assets/imgs/logOut.svg" alt="">
+            </a>
+        </header>
+        <article id="interacao">
+            <section id="cardInputs">
+                <form action="">
+                    <select name="cardImg" id="cardImg" onchange="trocarCard()" required>
+                        <option value="" disabled selected>Escolha a moldura da carta.</option>
+                        <option value="lendaria" id="cardLendaria">Lendaria</option>
+                        <option value="epica" id="cardEpica">Épica</option>
+                        <option value="rara" id="cardRara">Rara</option>
+                        <option value="dourada" id="cardDourada">Dourada</option>
+                    </select>
+                    <select name="jogadorImg" id="jogadorImg" onchange="trocarJogador()" required>
+                        <option value="" disabled selected>Escolha o jogador</option>
+                        <option value="cassio" id="cassio">Cássio</option>
+                        <option value="dida" id="dida">Dida</option>
+                        <option value="ronaldoGiovanelli" id="ronaldoG">Ronaldo Giovanelli</option>
+
+                        <option value="gil" id="gil">Gil</option>
+                        <option value="gamarra" id="gamarra">Gamarra</option>
+                        <option value="chicao" id="chicao">Chicão</option>
+                        <option value="domingosDaGuia" id="domingosDaGuia">Domingos da Guia</option>
+
+                        <option value="zeMaria" id="zeMaria">Zé Maria</option>
+                        <option value="fagner" id="fagner">Fagner</option>
+                        <option value="alessandro" id="alessandro">Alessandro</option>
+
+                        <option value="wladimir" id="wladimir">Wladimir</option>
+                        <option value="robertoCarlos" id="robertoCarlos">Roberto Carlos</option>
+                        <option value="fabioSantos" id="fabioSantos">Fábio Santos</option>
+
+                        <option value="marcelinho" id="marcelinho">Marcelinho Carioca</option>
+                        <option value="rivelino" id="rivelino">Rivelino</option>
+                        <option value="ralf" id="ralf">Ralf</option>
+                        <option value="socrates" id="socrates">Sócrates</option>
+                        <option value="paulinho" id="paulinho">Paulinho</option>
+                        <option value="neto" id="neto">Neto</option>
+                        <option value="renatoAugusto" id="renatoAugusto">Renato Augsto</option>
+
+                        <option value="emersonSheik" id="sheik">Emerson Sheik</option>
+                        <option value="baltazar" id="baltazar">Baltazar</option>
+                        <option value="claudio" id="claudio">Cláudio</option>
+                        <option value="ronaldo" id="ronaldo">Ronaldo</option>
+                        <option value="casagrande" id="casagrande">Casagrande</option>
+                        <option value="guerrero" id="guerrero">Guerrero</option>
+                        <option value="rogerGuedes" id="rogerGuedes">Roger Guedes</option>
+                    </select>
+                    <input type="text" placeholder="Digite a pontuação de ataque">
+                    <input type="text" placeholder="Digite a pontuação de defesa">
+                    <input type="text" placeholder="Digite a pontuação de passe">
+                    <button>Montar Jogador</button>
+                </form>
+            </section>
+            <section id="sessaoCard">
+                <div id="areaCard" style=" width: auto; height: 80vh; ">
+                    <div id="jogador">
+                        <img src="assets/jogadores/cassio.svg" alt="">
+                    </div>
+                    <div id="skills">
+                        
+                        <p>Ataque: 90</p>
+                        <p>Defesa: 80</p>
+                        <div>
+                            <p>Passe: 85</p>
+                            <p>OverAll:  85</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+        <div id="avatarModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div><img src="assets/imgs/cascao.png" alt=""></div>
+                <div><img src="assets/imgs/mantuan.png" alt=""></div>
+                <div><img src="assets/imgs/cascao2.png" alt=""></div>              
+            </div>
+        </div>
+          
+    </main>
 </body>
 </html>
+<script>
+
+function trocarCard() {
+    var selectElement = document.getElementById("cardImg");
+    var selectedValue = selectElement.value;
+
+    var divElement = document.getElementById("areaCard");
+
+    if (selectedValue === "lendaria") {
+        divElement.style.backgroundImage = "url('assets/imgs/lendaria.png')";
+    } else if (selectedValue === "epica") {
+        divElement.style.backgroundImage = "url('assets/imgs/epica.png')";
+    } else if (selectedValue === "rara") {
+        divElement.style.backgroundImage = "url('assets/imgs/rara.png')";
+    } else if (selectedValue === "dourada") {
+        divElement.style.backgroundImage = "url('assets/imgs/dourada.png')";
+    }
+}
+
+
+function trocarJogador() {
+    var selectElement = document.getElementById("jogadorImg");
+    var selectedJogador = selectElement.value;
+
+    var divJogador = document.getElementById("jogador");
+
+    if (selectedJogador === "cassio") {
+        divJogador.innerHTML = "<img src='assets/jogadores/cassio.svg' alt=''>";
+    } else if (selectedJogador === "dida") {
+        divJogador.innerHTML = "<img src='assets/jogadores/dida.svg' alt=''>";
+    } else if (selectedJogador === "ronaldoGiovanelli") {
+        divJogador.innerHTML = "<img src='assets/jogadores/ronaldoGiovanelli.svg' alt=''>";
+    }
+    // fim dos goleiros, começo dos defensores
+
+    else if (selectedJogador === "gil") {
+        divJogador.innerHTML = "<img src='assets/jogadores/gil.svg' alt=''>";
+    }
+    else if (selectedJogador === "gamarra") {
+        divJogador.innerHTML = "<img src='assets/jogadores/gamarra.svg' alt=''>";
+    }else if (selectedJogador === "domingosDaGuia") {
+        divJogador.innerHTML = "<img src='assets/jogadores/domingosDaGuia.svg' alt=''>";
+    }else if (selectedJogador === "chicao") {
+        divJogador.innerHTML = "<img src='assets/jogadores/chicao.svg' alt=''>";
+    }
+
+    // fim dos defensores, começo dos laterais
+
+    else if (selectedJogador === "zeMaria") {
+        divJogador.innerHTML = "<img src='assets/jogadores/zeMaria.svg' alt=''>";
+    }else if (selectedJogador === "fagner") {
+        divJogador.innerHTML = "<img src='assets/jogadores/fagner.svg' alt=''>";
+    }else if (selectedJogador === "alessandro") {
+        divJogador.innerHTML = "<img src='assets/jogadores/alessandro.svg' alt=''>";
+    }else if (selectedJogador === "wladimir") {
+        divJogador.innerHTML = "<img src='assets/jogadores/wladimir.svg' alt=''>";
+    }else if (selectedJogador === "robertoCarlos") {
+        divJogador.innerHTML = "<img src='assets/jogadores/robertoCarlos.svg' alt=''>";
+    }else if (selectedJogador === "fabioSantos") {
+        divJogador.innerHTML = "<img src='assets/jogadores/fabioSantos.svg' alt=''>";
+    }
+    
+    // fim dos laterais, começo dos meias
+
+    else if (selectedJogador === "marcelinho") {
+        divJogador.innerHTML = "<img src='assets/jogadores/marcelinho.svg' alt=''>";
+    }else if (selectedJogador === "rivelino") {
+        divJogador.innerHTML = "<img src='assets/jogadores/rivelino.svg' alt=''>";
+    }else if (selectedJogador === "ralf") {
+        divJogador.innerHTML = "<img src='assets/jogadores/ralf.svg' alt=''>";
+    }else if (selectedJogador === "socrates") {
+        divJogador.innerHTML = "<img src='assets/jogadores/socrates.svg' alt=''>";
+    }else if (selectedJogador === "paulinho") {
+        divJogador.innerHTML = "<img src='assets/jogadores/paulinho.svg' alt=''>";
+    }else if (selectedJogador === "neto") {
+        divJogador.innerHTML = "<img src='assets/jogadores/neto.svg' alt=''>";
+    }else if (selectedJogador === "renatoAugusto") {
+        divJogador.innerHTML = "<img src='assets/jogadores/renatoAugusto.svg' alt=''>";
+    }
+
+    // fim dos meias, começo dos atacantes
+
+
+    else if (selectedJogador === "emersonSheik") {
+        divJogador.innerHTML = "<img src='assets/jogadores/emersonSheik.svg' alt=''>";
+    }else if (selectedJogador === "baltazar") {
+        divJogador.innerHTML = "<img src='assets/jogadores/baltazar.svg' alt=''>";
+    }else if (selectedJogador === "claudio") {
+        divJogador.innerHTML = "<img src='assets/jogadores/claudio.svg' alt=''>";
+    }else if (selectedJogador === "ronaldo") {
+        divJogador.innerHTML = "<img src='assets/jogadores/ronaldo.svg' alt=''>";
+    }else if (selectedJogador === "casagrande") {
+        divJogador.innerHTML = "<img src='assets/jogadores/casagrande.svg' alt=''>";
+    }else if (selectedJogador === "guerrero") {
+        divJogador.innerHTML = "<img src='assets/jogadores/guerrero.svg' alt=''>";
+    }else if (selectedJogador === "rogerGuedes") {
+        divJogador.innerHTML = "<img src='assets/jogadores/rogerGuedes.svg' alt=''>";
+    }
+
+}
+
+// avatar
+
+// Referências aos elementos do DOM
+
+
+
+const openModalButton = document.getElementById('openModalButton');
+const modal = document.getElementById('avatarModal');
+
+// Evento de clique para abrir o modal
+openModalButton.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+// Evento de clique fora do modal para fechá-lo
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
+
+const userIconImage = document.querySelector('header img');
+
+// Referências às imagens dentro do modal
+const modalImages = document.querySelectorAll('.modal-content img');
+
+// Função para trocar a imagem do userIcon.svg
+function trocarImagem(e) {
+  const selectedImageSrc = e.target.getAttribute('src');
+  userIconImage.setAttribute('src', selectedImageSrc);
+  modal.style.display = "none";
+
+}
+
+// Adicionando o evento de clique às imagens no modal
+modalImages.forEach(function(image) {
+  image.addEventListener('click', trocarImagem);
+
+});
+
+ </script>
