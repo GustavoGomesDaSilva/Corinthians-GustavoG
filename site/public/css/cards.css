@@ -12,7 +12,7 @@ main{
     /* max-width: 100vw; */
     background-color: #f2f2f2;
     scroll-behavior: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 
 }
 header{
@@ -21,7 +21,7 @@ header{
     background-size: 100%;
     width: 97%;
     /* padding: auto 2%; */
-    height:29vh;
+    height:27vh;
     /* padding-top: 1%; */
     padding-left: 0;
     padding-right: 5%;
@@ -78,6 +78,7 @@ header a img{
     width: 100%;
     height: auto;
     display: flex;
+    margin-top: 1vh;
 }
 #interacao #cardInputs{
     width: 45%;
@@ -110,7 +111,7 @@ header a img{
     color: gray;
   }
 #interacao #cardInputs form button{
-    background-color: #a0a0a0;
+    background-color: #1b1b1b;
     width: 16vw;
     margin: auto;
     height: 7vh;
@@ -119,7 +120,7 @@ header a img{
     border-radius: 10px;
     box-shadow: #909090 4px 4px 2px;
     cursor: pointer;
-    color: #242424;
+    color: #f2f2f2;
 }
 
 
@@ -139,7 +140,7 @@ header a img{
   
   #interacao #cardInputs form button:hover::before {
     width: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(171,171,171,0.4) 100%, rgba(0,0,0,1) 190%);
+    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(199, 199, 199, 0.575) 100%, rgba(0,0,0,1) 190%);
     border-radius: 10px;
 
 }
@@ -155,7 +156,59 @@ header a img{
 
 #interacao #sessaoCard{
     width: 45%;
+    margin-bottom: 9vh;
 }
+#interacao #sessaoCard #btnCompartilhar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: #292929; */
+}
+#interacao #sessaoCard button{
+    background-color: #1b1b1b;
+    width: 16vw;
+    margin: auto;
+    height: 7vh;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: #909090 4px 4px 2px;
+    cursor: pointer;
+    color: #f2f2f2;
+
+}
+
+
+#interacao #sessaoCard button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff6b6b00; /* Cor inicial do background */
+    transition: width 0.3s, background-color 0.3s;
+    z-index: -1;
+    border-radius: 10px;
+
+  }
+  
+  #interacao #sessaoCard  button:hover::before {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.51) 0%, rgba(199, 199, 199, 0.575) 100%, rgba(0,0,0,1) 190%);
+    border-radius: 10px;
+
+}
+
+#interacao #sessaoCard button:hover{
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 5px #3a0808;
+    border-radius: 10px;
+
+    /* background-color: #3b3b3b; */
+}
+
+
 #interacao #sessaoCard #areaCard{
     width: fit-content;
     /* background-color: #494949; */
@@ -184,7 +237,7 @@ header a img{
     max-width: 100%;
     width: auto;
     max-width: 100%;
-    margin-top: 5vh;
+    margin-top: 2.8vh;
     /* margin-left: 3vw; */
     /* background-color: yellow !important; */
 }
@@ -272,4 +325,69 @@ header a img{
     border-radius: 15px;
 
   }
-  
+  /*  */
+  #btnsCard{
+    /* background-color: #242424; */
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5vh;
+  }
+
+  #analitics{
+    width: 100%;
+    height: auto;
+    /* background-color: #570d0d; */
+    display: flex;
+  }
+  #analitics #tabela{
+    width: 50%;
+   
+  }
+  #analitics #tabela h1{
+    text-align: center;
+    margin: 2vh auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    height: 40vh;
+    margin: auto;
+    background-color: #c7c7c7;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 25px;
+    border: #0f0f0f solid 3px;
+    
+
+  }
+
+  th {
+    background-color: #292929;
+    color: #f1f1f1;
+    border: #0f0f0f solid 3px;
+    
+
+  }
+
+  .rank {
+    width: 20px;
+    text-align: center;
+  }
+  .rank2{
+    background-color: #292929;
+    color: #f1f1f1;
+
+  }
+
+  #analitics .grafico{
+    width: 45%;
+    height: 75vh;
+    /* background-color: #888; */
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 5vw; */
+  }
