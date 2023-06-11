@@ -21,7 +21,9 @@
         <section>
           <div class="logo">
             <a href="index.html">
-            <img src="assets/icon/simbolo.png" alt="" /></a></div>
+              <img src="assets/icon/simbolo.png" alt=""
+            /></a>
+          </div>
           <h2>Login</h2>
 
           <form action="./selecao.html" id="form" class="form">
@@ -50,7 +52,8 @@
       <article id="imgLogin"></article>
     </main>
   </body>
-</html>  <script>
+</html>
+<script>
   function entrar(event) {
     event.preventDefault(); // Impede o envio do formulário
 
@@ -90,6 +93,7 @@
 
               sessionStorage.EMAIL_USUARIO = json.email;
               sessionStorage.NOME_USUARIO = json.nome;
+              sessionStorage.NICK_USUARIO = json.nickname;
               sessionStorage.ID_USUARIO = json.id;
 
               setTimeout(function () {

@@ -99,23 +99,28 @@ function cadastrar(req, res) {
 
 
 function montarJogador(req, res) {
-    console.log("montafasfafa");
+    console.log("AAAAAAAAAAAAAAAAAA");
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeJogador = req.body.nomeServer;
     var overAllAtaque = req.body.overAllAtaqueServer;
     var overAllDefesa = req.body.overAllDefesaServer;
     var overAllPasse = req.body.overAllPasseServer;
 
+    
     // Faça as validações dos valores
-    if (overAllAtaque == undefined) {
+    if (nomeJogador == undefined) {
         res.status(400).send("Seu overAllAtaque está undefined!");
-    } else if (overAllDefesa == undefined) {
+    } else if (overAllAtaque == undefined) {
         res.status(400).send("Seu overAllDefesa está undefined!");
-    } else if (overAllPasse == undefined) {
+    } else if (overAllDefesa == undefined) {
+        res.status(400).send("Seu overAllPasse está undefined!");
+    }
+    else if (overAllPasse == undefined) {
         res.status(400).send("Seu overAllPasse está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.montarJogador(overAllAtaque, overAllDefesa, overAllPasse)
+        usuarioModel.montarJogador(nomeJogador, overAllAtaque, overAllDefesa, overAllPasse)
             .then(
                 function (resultado) {
                     res.json(resultado);

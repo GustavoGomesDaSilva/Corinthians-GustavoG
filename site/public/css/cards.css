@@ -340,7 +340,9 @@ header a img{
     display: flex;
   }
   #analitics #tabela{
-    width: 50%;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10vh;
    
   }
   #analitics #tabela h1{
@@ -366,7 +368,7 @@ header a img{
   }
 
   th {
-    background-color: #292929;
+    background-color: #424242;
     color: #f1f1f1;
     border: #0f0f0f solid 3px;
     
@@ -378,16 +380,9 @@ header a img{
     text-align: center;
   }
   .rank2{
-    background-color: #292929;
+    background-color: #424242;
     color: #f1f1f1;
 
   }
 
-  #analitics .grafico{
-    width: 45%;
-    height: 75vh;
-    /* background-color: #888; */
-    display: flex;
-    justify-content: flex-start;
-    /* margin-left: 5vw; */
-  }
+

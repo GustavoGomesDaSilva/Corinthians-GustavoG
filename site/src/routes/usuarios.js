@@ -21,7 +21,8 @@ router.post("/autenticar", function (req, res) {
 });
 
 
-router.post("/card", function (req, res) {
+router.post("/montarJogador", function (req, res) {
+    // alert("testando se chegou")
     usuarioController.montarJogador(req, res);
 });
 

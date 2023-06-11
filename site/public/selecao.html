@@ -11,6 +11,8 @@
       href="assets/icon/simboloBranco.png"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/funcoes.js"></script>
+
 
     <title>Cards</title>
   </head>
@@ -20,7 +22,7 @@
         <div>
           <img src="assets/imgs/userIcon.svg" alt="" id="avatar" />
           <p><button id="openModalButton">Escolha seu avatar</button></p>
-          <h5>Nome de Usuário</h5>
+          <h5 id="nickUsuario">NickName do Usuário</h5>
         </div>
         <a href="./index.html">
           <i>Deslogar</i>
@@ -187,11 +189,11 @@
               <img src="assets/jogadores/cassio.svg" alt="" />
             </div>
             <div id="skills">
-              <p>Ataque: 90</p>
-              <p>Defesa: 80</p>
+              <p>Ataque: <span id="statsAtq">?</span> </p>
+              <p>Defesa: <span id="statsDef">?</span></p>
               <div>
-                <p>Passe: 85</p>
-                <p>OverAll: 85</p>
+                <p>Passe: <span id="statsPass">?</span></p>
+                <p>OverAll: <span id="statsTotal">?</span></p>
               </div>
             </div>
           </div>
@@ -226,9 +228,7 @@
             </tr>
           </table>
         </div>
-        <div class="grafico">
-          <canvas id="myChart"></canvas>
-        </div>
+
       </article>
       <div id="avatarModal" class="modal" style="display: none">
         <div class="modal-content">
@@ -247,58 +247,10 @@
   </body>
 </html>
 <script>
-  const ctx = document.getElementById("myChart");
-  const data = {
-    labels: ["Ataque", "Defesa", "Passe"],
-    datasets: [
-      {
-        label: "Stats do Jogador",
-        data: [97, 97, 97],
-        fill: true,
-        backgroundColor: "#4b4b4b33",
-        borderColor: "#4b4b4b",
-        pointBackgroundColor: "#4b4b4b",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#3a0808",
-        pointHoverBorderColor: "#003a14",
-      },
-    ],
-  };
 
-  const config = {
-    type: "radar",
-    data: data,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 3,
-        },
-      },
-      scales: {
-        r: {
-          min: 80,
-          max: 100,
-          pointLabels: {
-            font: {
-              size: 18,
-            },
-          },
-          angleLines: {
-            color: "#292929",
-          },
-          grid: {
-            color: "#292929",
-          },
-          ticks: {
-            color: "#5f5f5f",
-            backgroundColor: "#333",
-          },
-        },
-      },
-    },
-  };
+  var nick = document.getElementById("nickUsuario");
 
-  new Chart(ctx, config);
+  nick.innerHTML = sessionStorage.NICK_USUARIO;
 
   function captureDiv() {
     // Captura a div desejada pela classe
@@ -470,6 +422,9 @@
 </script>
 <!-- banco -->
 <script>
+
+var optionsBackup = [];
+
   function montarJogador(event) {
     event.preventDefault(); // Impede o comportamento padrão do botão
 
@@ -480,28 +435,169 @@
     var selectedOption = selectElement.querySelector(
       "option[value='" + selectedValue + "']"
     );
+        // Remove a opção selecionada da combo box
+    if (selectedOption) {
+    // Adicionar a opção à lista de backup
+    optionsBackup.push(selectedOption);
 
-    // Remover a opção selecionada do menu suspenso
+    // Remover a opção do select
     selectElement.removeChild(selectedOption);
+  }
 
-    var overAllAtaqueVar = Number( overAllAtaque_input.value);
+    var nomeVar = selectedValue;
+    // alert(nomeVar)
+    var overAllAtaqueVar = Number(overAllAtaque_input.value);
     var overAllDefesaVar = Number(overAllDefesa_input.value);
     var overAllPasseVar = Number(overAllPasse_input.value);
 
-    fetch("/usuarios/card", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        overAllAtaqueServer: overAllAtaqueVar,
-        overAllDefesaServer: overAllDefesaVar,
-        overAllPasseServer: overAllPasseVar,
-      }),
-    }).then(function (resposta) {
-      console.log("resposta: ", resposta);
-    });
+    var atqDiv = document.getElementById("statsAtq");
+    var defDiv = document.getElementById("statsDef");
+    var passDiv = document.getElementById("statsPass");
+    var totDiv = document.getElementById("statsTotal");
+
+    var overAllTotal = ((overAllAtaqueVar + overAllDefesaVar + overAllPasseVar) / 3).toFixed(2);
+
+    atqDiv.innerHTML = overAllAtaqueVar;
+    defDiv.innerHTML = overAllDefesaVar;
+    passDiv.innerHTML = overAllPasseVar;
+    totDiv.innerHTML = overAllTotal;
+
+    if (
+      nomeVar == null ||
+      overAllAtaqueVar == null ||
+      overAllDefesaVar == null ||
+      overAllPasseVar == null
+
+    ) {
+      alert("Preencha todos os campos");
+    } else {
+      // alert("sgjkasdjgsklgjsdadAAAAAAAA")
+
+      fetch("/usuarios/montarJogador", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                overAllAtaqueServer: overAllAtaqueVar,
+                overAllDefesaServer: overAllDefesaVar,
+                overAllPasseServer: overAllPasseVar,
+            })
+        })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+          console.log("testee");
+
+          if (resposta.ok) {
+            window.alert(
+              "Estatisticas enviadas para o banco de dados"
+            );
+            
+          } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+          } else {
+            throw (
+              "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+              resposta.status
+            );
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          // finalizarAguardar();
+        });
+
+      return false;
+    }
   }
+
+  function resetarJogadores() {
+  var selectElement = document.getElementById("jogadorImg");
+
+  // Remover todas as opções atuais
+  selectElement.innerHTML = "";
+
+  // Recriar as opções a partir do backup
+  optionsBackup.forEach(function (option) {
+    selectElement.appendChild(option);
+  });
+
+  // Limpar a lista de backup
+  optionsBackup = [];
+}
+</script>
+<script>
+  
+  function tabela(){
+
+    fetch("/usuarios/listar", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+         
+        })
+          .then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar()!");
+
+            if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(function (json) {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                ranking(json)            
+
+                
+              });
+            } else {
+              console.log("Houve um erro ao tentar trazer os dados para a tabe");
+
+              resposta.text().then(function (texto) {
+                console.error(texto);
+              });
+            }
+          })
+          .catch(function (erro) {
+            console.log(erro);
+          });
+  
+
+ 
+  }
+  function ranking(posicoes){
+      var rankingPrimeiroNome = document.getElementById("primeiro")
+      var rankingPrimeiroQtd = document.getElementById("primeiroQtd")
+
+      var rankingSegundoNome = document.getElementById("segundo")
+      var rankingSegundoQtd = document.getElementById("segundoQtd")
+
+      var rankingTerceiroNome = document.getElementById("terceiro")
+      var rankingTerceiroQtd = document.getElementById("terceiroQtd")
+
+      // alert(posicoes[0])
+
+      // console.log(nomePrimeiro, qtdPrimeiro)
+    
+      for(var i = 0; i<3; i++){
+        var nomeJogador = posicoes[i].nome
+        var qtdJogador = posicoes[i].repeticoes
+
+        if(i==0){
+          rankingPrimeiroNome.innerHTML = nomeJogador
+          rankingPrimeiroQtd.innerHTML = qtdJogador
+        }else if(i==1){
+          rankingSegundoNome.innerHTML = nomeJogador
+          rankingSegundoQtd.innerHTML = qtdJogador
+        }else{
+          rankingTerceiroNome.innerHTML = nomeJogador
+          rankingTerceiroQtd.innerHTML = qtdJogador
+        }
+      } 
+    }
+    tabela()
 </script>
