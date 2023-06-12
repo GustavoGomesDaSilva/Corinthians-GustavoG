@@ -4,6 +4,7 @@
     padding: 0%;
     border: 0;
     margin: 0;
+    overflow: hidden;
 }
 body {
     background-color: #f2f2f2;
@@ -26,8 +27,8 @@ main{
 }
 #imgCadastro{
     width: 55%;
-    margin-top: 20vh;
-    height: 80vh;
+    margin-top: 25vh;
+    height: 89vh;
     position: absolute;
     background-image: url('../assets/imgs/imgCadastro1.svg');
     background-size: 100%;
